@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- contextPath 변수 선언 (조건부) -->
 <c:if test="${empty contextPath}">
   <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 </c:if>
@@ -19,7 +18,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 
@@ -29,7 +27,7 @@ html {
 }
 
 body {
-	min-height: 100vh; /* vh - ViewPoint Height (브라우저 화면 높이) */
+	min-height: 100vh; 
 	margin: 0;
 	padding: 0;
 	background: #fff;
@@ -69,20 +67,19 @@ a {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  /* min-width: 420px;  ← 이거 빼야 flex 영향 없음 */
 }
 
 .searchBar {
   position: relative;
-  width: 420px;       /* 검색바 길이 딱 고정 */
-  max-width: 420px;   /* 강제로 고정 */
-  flex-shrink: 0;     /* flex 줄어들지 않게 */
+  width: 420px;       
+  max-width: 420px;   
+  flex-shrink: 0;     
 }
 
 .searchBar .input {
-  width: 100% !important;        /* 부모(.searchBar)에 맞게 꽉 채움 */
-    max-width: 420px !important;/* 절대 안 넘치게 */
-  box-sizing: border-box;     /* padding 포함해서 width 계산 */
+  width: 100% !important;        
+    max-width: 420px !important;
+  box-sizing: border-box;     
   height: 44px;
   padding: 0 44px 0 40px;
   border: 1px solid #e5e7eb;
@@ -316,6 +313,10 @@ a {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	transition: right 1s;
 }
+.logo { display:inline-block; width:160px; }
+.logo-img { display:block; width:100%; height:auto; }
+a.logo { display: inline-block; }
+
 </style>
 </head>
 
@@ -324,9 +325,8 @@ a {
   <!-- 왼쪽 -->
   <div class="left">
     <a class="logo" href="${contextPath}">
-      <img src="${contextPath}/resources/image/DOG.jpg" alt="puppit" width="100">
+      <img src="${contextPath}/resources/image/logo.svg" alt="사이트 로고" class="logo-img">
     </a>
-
     <div class="left-col">
       <!-- 검색창 -->
       <div class="searchBar">
@@ -352,8 +352,8 @@ a {
         </select>
         <i class="fa-solid fa-chevron-down chev"></i>
       </label>
-    </div><!-- left-col 끝 -->
-  </div><!-- left 끝 -->
+    </div>
+  </div>
 
   <!-- 오른쪽 -->
   <div class="right">
