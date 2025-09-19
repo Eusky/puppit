@@ -19,8 +19,8 @@
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="jdbcUrl"
-                  value="jdbc:mysql://puppit.cp2aos8cos6t.ap-southeast-2.rds.amazonaws.com:3306/puppit?serverTimezone=Asia/Seoul&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;sslMode=REQUIRED&amp;allowPublicKeyRetrieval=true"/>
-        <property name="username" value="user"/>
+                  value="jdbc:mysql://db-puppit.ct2kkgic20q1.ap-northeast-2.rds.amazonaws.com:3306/puppit?serverTimezone=Asia/Seoul&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;sslMode=REQUIRED&amp;allowPublicKeyRetrieval=true"/>
+        <property name="username" value="admin"/>
         <property name="password" value="puppitgood"/>
     </bean>
 
