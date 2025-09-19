@@ -15,6 +15,10 @@
     <context:component-scan base-package="org.puppit" />
     <context:annotation-config />
 
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
     <!-- 1) HikariConfig -->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -24,7 +28,7 @@
     </bean>
 
     <!-- 2) DataSource -->
-    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <constructor-arg ref="hikariConfig"/>
     </bean>
 
@@ -51,6 +55,8 @@
         <property name="maxUploadSize" value="104857600"/> <!-- 100MB -->
         <property name="maxUploadSizePerFile" value="10485760"/> <!-- 10MB -->
     </bean>
+
+
     
 
 
