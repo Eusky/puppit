@@ -497,7 +497,7 @@ console.log("contextPath", contextPath);
 console.log("loginUserId", loginUserId);
 console.log("userId", userId);
 
-//let stompClient = null;
+//let window.stompClient = null;
 let currentRoomId = null;
 let currentSubscription = null;
 let isConnected = false;
@@ -676,7 +676,7 @@ Promise.all(chatCountPromises).then(() => {
         if (!imgSrc) imgSrc = defaultImg;
         const profileSpan = chatDiv.querySelector('.chat-profile-img');
         if (profileSpan) {
-            profileSpan.innerHTML = `<img src="\${imgSrc}" alt="프로필 이미지" width="64" height="64" style="width:64px;height:64px;object-fit:cover;border-radius:50%;" onerror="this.src='${defaultImg}'"/>`;
+            profileSpan.innerHTML = `<img src="${imgSrc}" alt="프로필 이미지" width="64" height="64" style="width:64px;height:64px;object-fit:cover;border-radius:50%;" onerror="this.src='${defaultImg}'"/>`;
         }
     });
 });
@@ -1183,8 +1183,8 @@ function removeUnreadBadge(roomId) {
 }
 
 function enableChatInput(enable) {
-    const input = document.querySelector('input[placeholder="채팅메시지를 입력하세요"]');
-    const button = document.querySelector('button[type="submit"]');
+    const input = document.getElementById('chatMessageInput');       // textarea
+    const button = document.getElementById('sendChatButton');        // type="button"
     if (input && button) {
         input.disabled = !enable;
         button.disabled = !enable;
@@ -1500,7 +1500,7 @@ function connectAndSubscribe(currentRoomId) {
 
 function subscribeRoom(currentRoomId) {
    if (currentSubscription) currentSubscription.unsubscribe();
-    currentSubscription = stompClient.subscribe('/topic/chat/' + currentRoomId, function (msg) {
+    currentSubscription = window.stompClient.subscribe('/topic/chat/' + currentRoomId, function (msg) {
         const chat = JSON.parse(msg.body);
        
         let rawTime = chat.chatCreatedAt || "";
@@ -1640,7 +1640,7 @@ function sendMessage(currentRoomId, chatMessages = []) {
     }
     const message = input.value;
     console.log("message: ", message);
-    //if (!stompClient || !isConnected) return;
+    //if (!window.stompClient || !isConnected) return;
     //if (!message.trim() || !currentRoomId) return;
 
     // 1. productSellerId는 상품영역에서만 추출 (window.lastProductInfo를 반드시 사용)
@@ -1714,7 +1714,7 @@ function sendMessage(currentRoomId, chatMessages = []) {
     };
 
     console.log('[sendMessage] chatMessage:', chatMessage);
-    stompClient.send("/app/chat.send", {}, JSON.stringify(chatMessage));
+    window.stompClient.send("/app/chat.send", {}, JSON.stringify(chatMessage));
     
  
     
@@ -1770,4 +1770,4 @@ window.showExitDonePopup = showExitDonePopup;
 window.showExitChatroomModal = showExitChatroomModal; // window에 등록
 window.highlightChatRoom = highlightChatRoom;
 window.updateChatListLastMessage = updateChatListLastMessage;
-window.displayNotification = displayNoti
+window.displayNotification = displayNotification;
