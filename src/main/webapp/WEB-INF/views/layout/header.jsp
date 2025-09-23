@@ -324,7 +324,7 @@ a.logo { display: inline-block; }
 <div class="header">
   <!-- 왼쪽 -->
   <div class="left">
-    <a class="logo" href="<c:url value='/'>">
+    <a class="logo" href="<c:url value='/'/>">
       <img src="${contextPath}/resources/image/logo.svg" alt="사이트 로고" class="logo-img">
     </a>
     <div class="left-col">
