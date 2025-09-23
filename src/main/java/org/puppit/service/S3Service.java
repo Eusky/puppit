@@ -38,6 +38,7 @@ public class S3Service {
 
     //  삭제
     public void deleteFile(String fileUrl) {
+
         String bucketName = "puppit-goodee-semi"; // ← 업로드랑 동일하게
         String fileKey = fileUrl.substring(fileUrl.indexOf(bucketName) + bucketName.length() + 1);
 
