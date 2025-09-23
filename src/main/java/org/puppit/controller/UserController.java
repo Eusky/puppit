@@ -41,7 +41,7 @@ public class UserController {
   private final UserService userService;
   private final S3Service s3Service;
   private final AmazonS3 amazonS3;
-  private static final String BUCKET = "jscode-upload-images";
+  private static final String BUCKET = "puppit-goodee-semi";
   
   
   @SuppressWarnings("unchecked")
