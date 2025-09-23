@@ -238,7 +238,7 @@
     <div class="avatar">
       <c:choose>
         <c:when test="${not empty user.profileImageKey}">
-          <img src="https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/${user.profileImageKey}"
+          <img src="https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/${user.profileImageKey}"
                alt="프로필 이미지"
                onerror="this.src='${contextPath}/resources/image/profile-default.png'">
         </c:when>
