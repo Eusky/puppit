@@ -359,7 +359,7 @@ public class UserController {
       userService.updateProfileImageKey(userId, newKey);
 
       rttr.addFlashAttribute("msg", "프로필 이미지가 변경되었습니다.");
-      amazonS3.setObjectAcl("jscode-upload-images", newKey, CannedAccessControlList.PublicRead);
+      amazonS3.setObjectAcl("puppit-goodee-semi", newKey, CannedAccessControlList.PublicRead);
     } catch (Exception e) {
       rttr.addFlashAttribute("msg", "업로드 실패" + e.getMessage());
     }
