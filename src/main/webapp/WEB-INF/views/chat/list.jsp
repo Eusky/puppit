@@ -662,15 +662,15 @@ Promise.all(chatCountPromises).then(() => {
 
             // 내가 구매자면 판매자 프로필
             if (myAccountId === buyerAccountId && info.sellerProfileImageKey) {
-                imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + info.sellerProfileImageKey;
+                imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + info.sellerProfileImageKey;
             }
             // 내가 판매자면 구매자 프로필
             else if (myAccountId === sellerAccountId && info.receiverProfileImageKey) {
-                imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + info.receiverProfileImageKey;
+                imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + info.receiverProfileImageKey;
             }
             // 그 외: otherProfileImageKey (예: 운영자, 자기 자신과의 채팅 등)
             else if (info.otherProfileImageKey) {
-                imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + info.otherProfileImageKey;
+                imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + info.otherProfileImageKey;
             }
         }
         if (!imgSrc) imgSrc = defaultImg;
@@ -945,7 +945,7 @@ function reloadRecentRoomList() {
                 let imgSrc = defaultImg;
                 const profileInfo = profileImages.find(pi => String(pi.chatRoomId) === String(chat.roomId));
                 if (profileInfo && profileInfo.sellerProfileImageKey) {
-                    imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + profileInfo.sellerProfileImageKey;
+                    imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + profileInfo.sellerProfileImageKey;
                 }
 
                 // 현재 로그인한 계정 ID (판매자/구매자 판별)
@@ -973,13 +973,13 @@ function reloadRecentRoomList() {
                 if (profileInfo) {
                     if (opponentAccountId === profileInfo.productSellerAccountId && profileInfo.sellerProfileImageKey) {
                         // 상대방이 판매자일 때
-                        imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + profileInfo.sellerProfileImageKey;
+                        imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + profileInfo.sellerProfileImageKey;
                     } else if (opponentAccountId === profileInfo.chatReceiverAccountId && profileInfo.receiverProfileImageKey) {
                         // 상대방이 구매자일 때
-                        imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + profileInfo.receiverProfileImageKey;
+                        imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + profileInfo.receiverProfileImageKey;
                     } else if (profileInfo.otherProfileImageKey) {
                         // 기타 예외케이스
-                        imgSrc = 'https://jscode-upload-images.s3.ap-northeast-2.amazonaws.com/' + profileInfo.otherProfileImageKey;
+                        imgSrc = 'https://puppit-goodee-semi.s3.ap-northeast-2.amazonaws.com/' + profileInfo.otherProfileImageKey;
                     }
                 }
 
